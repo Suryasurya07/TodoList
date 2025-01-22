@@ -1,4 +1,4 @@
-![Profile Image](./images/profile.png)
+![Profile Image](./images/profile.jpg)
 
 # Advanced React To-Do Application with API Integration
 
