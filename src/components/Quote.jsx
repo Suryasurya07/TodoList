@@ -9,7 +9,13 @@ const Quote = () => {
   useEffect(() => {
     const fetchQuote = async () => {
       try {
-        const response = await fetch('https://api.quotable.io/random');
+        const response = await fetch('https://quotes15.p.rapidapi.com/quotes/random/?language_code=en', {
+          method: 'GET',
+          headers: {
+            'x-rapidapi-host': 'quotes15.p.rapidapi.com',
+            'x-rapidapi-key': 'c8c353f287msh4bd557e7f8ba8a8p19a82ejsn582846b3ddff', // Replace with your RapidAPI key
+          },
+        });
         
         if (!response.ok) {
           throw new Error('Failed to fetch quote');
@@ -17,7 +23,7 @@ const Quote = () => {
 
         const data = await response.json();
         setQuote(data.content);  // Set the quote content
-        setAuthor(data.author);   // Set the author of the quote
+        setAuthor(data.originator.name);   // Set the author of the quote (from the 'originator' field)
         setError(''); // Clear any previous errors
       } catch (error) {
         console.error('Error fetching quote:', error);
