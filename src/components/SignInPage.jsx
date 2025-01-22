@@ -27,12 +27,12 @@ const SignInPage = () => {
 
   return (
     <motion.div
-      className="flex justify-center items-center min-h-screen bg-gray-100"
+      className="flex justify-center items-center min-h-screen bg-gray-100 p-4 sm:p-6 md:p-8"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full sm:w-96">
+      <div className="bg-white p-6 rounded-lg shadow-lg w-full sm:w-96 md:w-96 lg:w-96">
         <h2 className="text-2xl font-semibold text-center text-gray-700 mb-6">Sign Up</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="flex items-center border border-gray-300 rounded-md p-2">

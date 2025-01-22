@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* Set the default font size for the entire page */
+body {
+    font-size: 16px; /* This is the normal font size */
+  }
+  

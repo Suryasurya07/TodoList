@@ -1,4 +1,3 @@
-// src/pages/LoginPage.js
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -47,12 +46,12 @@ const LoginPage = () => {
 
   return (
     <motion.div
-      className="flex justify-center items-center min-h-screen bg-gray-100"
+      className="flex justify-center items-center min-h-screen bg-gray-100 p-4 sm:p-6 md:p-8"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full sm:w-96">
+      <div className="bg-white p-6 rounded-lg shadow-lg w-full sm:w-[384px] md:w-[384px] lg:w-[384px] xl:w-[384px]">
         <h2 className="text-2xl font-semibold text-center text-gray-700 mb-6">Login</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="flex items-center border border-gray-300 rounded-md p-2">

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { toggleTaskComplete, toggleTaskImportance, deleteTask } from '../redux/taskSlice';
 import TaskItem from './TaskItem';
 
-const TaskList = () => {
+const TaskList = ({ searchQuery }) => {
   const tasks = useSelector(state => state.tasks?.tasks || []);
   const dispatch = useDispatch();
 
@@ -11,8 +11,19 @@ const TaskList = () => {
   const toggleImportance = (taskId) => dispatch(toggleTaskImportance(taskId));
   const deleteTaskById = (taskId) => dispatch(deleteTask(taskId));
 
-  const incompleteTasks = tasks.filter(task => !task.completed);
-  const completedTasks = tasks.filter(task => task.completed);
+  // Filter tasks based on searchQuery
+  const filteredTasks = tasks.filter(task => {
+    // Ensure title and description are defined before calling toLowerCase
+    const title = task.title || '';
+    const description = task.description || '';
+    return (
+      title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      description.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  });
+
+  const incompleteTasks = filteredTasks.filter(task => !task.completed);
+  const completedTasks = filteredTasks.filter(task => task.completed);
 
   return (
     <div className="space-y-8">

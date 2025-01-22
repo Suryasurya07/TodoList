@@ -1,42 +1,42 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion'; // For animations
-import { FaCloudSun, FaCloudRain, FaSun } from 'react-icons/fa'; // Weather Icons
+import { FaCloudSun, FaCloudRain, FaSun, FaMapMarkerAlt } from 'react-icons/fa'; // Weather Icons
 import { MdError } from 'react-icons/md'; // Error Icon
 
 const Weather = () => {
   const [weather, setWeather] = useState(null);
   const [error, setError] = useState(null);
+  const [locationRequested, setLocationRequested] = useState(false); // Track if location has been requested
 
-  useEffect(() => {
-    const API_KEY = '0fb6b5b5ebb71eb6bd4232ff193f7b50';
-    
-    // Get the user's location
-    const getLocationAndFetchWeather = async () => {
-      try {
-        // Get user's location using the Geolocation API
-        const position = await new Promise((resolve, reject) => {
-          navigator.geolocation.getCurrentPosition(resolve, reject);
-        });
+  const getLocationAndFetchWeather = async () => {
+    try {
+      // Get user's location using the Geolocation API
+      const position = await new Promise((resolve, reject) => {
+        navigator.geolocation.getCurrentPosition(resolve, reject);
+      });
 
-        const { latitude, longitude } = position.coords;
+      const { latitude, longitude } = position.coords;
 
-        // Construct the weather API URL with user's latitude and longitude
-        const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`;
+      // Construct the weather API URL with user's latitude and longitude
+      const API_KEY = '0fb6b5b5ebb71eb6bd4232ff193f7b50';
+      const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`;
 
-        // Fetch the weather data
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error(`Error: ${response.status} - ${response.statusText}`);
-        }
-        const data = await response.json();
-        setWeather(data);
-      } catch (err) {
-        setError(err.message);
+      // Fetch the weather data
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status} - ${response.statusText}`);
       }
-    };
+      const data = await response.json();
+      setWeather(data);
+    } catch (err) {
+      setError(err.message);
+    }
+  };
 
+  const handleButtonClick = () => {
+    setLocationRequested(true);
     getLocationAndFetchWeather();
-  }, []);
+  };
 
   if (error) {
     return (
@@ -47,7 +47,7 @@ const Weather = () => {
     );
   }
 
-  if (!weather) {
+  if (!weather && locationRequested) {
     return (
       <div className="flex items-center justify-center p-4">
         <motion.div
@@ -56,6 +56,20 @@ const Weather = () => {
           className="w-8 h-8 border-4 border-t-4 border-purple-500 rounded-full"
         />
         <p className="text-lg text-purple-600 ml-4">Loading weather...</p>
+      </div>
+    );
+  }
+
+  if (!weather) {
+    return (
+      <div className="flex items-center justify-center p-4">
+        <motion.button
+          onClick={handleButtonClick}
+          className="flex items-center px-6 py-2 bg-blue-500 text-white rounded-lg shadow-lg hover:bg-blue-600 transition duration-200 ease-in-out"
+        >
+          <FaMapMarkerAlt className="mr-2 text-lg" />
+          Get Location
+        </motion.button>
       </div>
     );
   }
