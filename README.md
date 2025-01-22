@@ -1,85 +1,71 @@
-<<<<<<< HEAD
-ReactJS To-Do Application with API Integration
-Task Overview
-This project aims to develop an advanced To-Do application using ReactJS, Redux for state management, and external API integration. The application includes features such as task management, task prioritization, authentication, and responsive design.
+# Advanced React To-Do Application with API Integration
 
-The goal of this assignment is to demonstrate your proficiency in React, Redux, API integration, and building a responsive user interface.
+## Objective
+Enhance the basic To-Do application by integrating external API data, implementing advanced state management using Redux, and ensuring the application is responsive and user-friendly across different devices.
 
-Features
-Frontend Development & API Integration:
+### Figma Design:
+[View the Design on Figma](https://www.figma.com/design/DAQXWhcqjf4idJCClGNQqt/Front-End-Developer?node-id=0-1&t=suUJGaYF7bBUdXJz-0)
 
-HTML for structuring the app layout.
-CSS (with optional frameworks like Bootstrap or Material-UI) for styling.
-API integration with a public API (e.g., Weather API) to display relevant task data.
-Error handling for API requests.
-React Components & State Management:
+## Features
+- **Frontend Development and API Integration**:
+  - HTML for the structure of the application.
+  - CSS (with optional frameworks like Bootstrap or Material-UI) for styling.
+  - JavaScript (ES6 or later) for application logic.
+  - Integration with a public API (e.g., a weather API) to display data relevant to tasks.
+  - Error handling for API requests.
 
-Application built with functional components and React hooks (useState, useEffect).
-TaskInput component to add a task.
-TaskList component to display tasks.
-Redux (with Redux Thunk or Redux Saga) to handle asynchronous API calls.
-Responsive Design:
+- **React Components and Advanced State Management**:
+  - Functional components using React hooks (`useState`, `useEffect`).
+  - At least two components:
+    - `TaskInput`: For adding new tasks.
+    - `TaskList`: For displaying tasks.
+  - Redux Thunk or Redux Saga for handling asynchronous actions (e.g., API calls).
 
-Ensure mobile-first, responsive design using CSS Grid and Flexbox.
-Fully responsive on mobile, tablet, and desktop devices.
-Core Functionality:
+- **Responsive Design**:
+  - Mobile-first design ensuring full responsiveness across mobile, tablet, and desktop devices.
+  - Use of CSS Grid and Flexbox.
 
-Add Task: Allow users to input and add tasks.
-View Tasks: Display tasks in a list format.
-Delete Task: Remove tasks by clicking a delete button.
-Task Prioritization: Set and display task priorities (High, Medium, Low).
-Persistent Storage: Use local storage/session storage for data persistence across browser sessions.
-User Authentication:
+- **Functionality**:
+  - **Add Task**: Allow users to input a task and add it to the list.
+  - **View Tasks**: Display added tasks in a list.
+  - **Delete Task**: Remove tasks from the list using a delete button.
+  - **Task Prioritization**: Set priorities for tasks (e.g., High, Medium, Low).
+  - **Persistent Storage**: Use local storage or session storage to save tasks and authentication status.
 
-Mock user authentication (login/logout) with Redux state management.
-Protect To-Do list from unauthorized access.
-Project Structure & Code Quality:
+- **User Authentication**:
+  - A simple mock user authentication (login/logout) using Redux for state management.
+  - Protect the To-Do list so tasks are only visible to logged-in users.
 
-Organize code with best practices for scalability and maintainability.
-Use clean, well-commented code adhering to React best practices.
-Requirements
-ReactJS for front-end development.
-Redux for state management (use Redux Thunk or Redux Saga for async actions).
-HTML & CSS (Bootstrap/Material-UI optional).
-Public API (e.g., weather API) for external data integration.
-Responsive layout (CSS Grid/Flexbox).
-Local Storage/Session Storage for persistent data storage.
-Implement Authentication (mock).
-Setup & Installation
-Clone the repository:
-bash
-Copy
-Edit
-git clone https://github.com/Suryasurya07/TodoList.git
-cd todo-app
-Install dependencies:
-bash
-Copy
-Edit
-npm install
-Start the development server:
-bash
-Copy
-Edit
-npm start
-This will run the app in development mode at http://localhost:3000.
 
-Screenshots
-Homepage
+## Installation
 
-Task List View
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/TodoList.git
+    cd advanced-todo-app
+    ```
 
-Task Details
+2. Install the dependencies:
+    ```bash
+    npm install
+    ```
 
-Live Demo
-The application is deployed at: [Your Vercel/Netlify/GitHub Pages URL here]
-=======
-# React + Vite
+3. Run the development server:
+    ```bash
+    npm start
+    ```
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+4. Visit the application in your browser at `http://localhost:3000`.
 
-Currently, two official plugins are available:
+## Technologies Used
+- **React** (Functional Components & Hooks)
+- **Redux** (State Management)
+- **CSS** (Mobile-First Design, Flexbox, Grid)
+- **API Integration** (Weather API or similar)
+- **LocalStorage** for persistent data
+- **React Router** (if applicable for multiple views)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
->>>>>>> fba70f338028d2601490df5224462351bbc39aeb
+
+---
+
+
