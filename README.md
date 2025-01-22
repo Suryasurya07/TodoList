@@ -1,3 +1,5 @@
+![Profile Image](./images/profile.png)
+
 # Advanced React To-Do Application with API Integration
 
 ## Objective
